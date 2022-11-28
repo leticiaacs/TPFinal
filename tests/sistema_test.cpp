@@ -12,7 +12,7 @@ TEST_CASE("Testando cria_cadastro"){
 
     SUBCASE("Caso negativo: cadastro ja existe"){
         Sistema s = Sistema();
-        long int cpf = 12345678911;
+        std::string cpf = 12345678911;
         REQUIRE(s.cria_cadastro(cpf,"senha"));
 
         CHECK_EQ(s.cria_cadastro(cpf,"AZUL"), 1);
