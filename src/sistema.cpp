@@ -7,15 +7,14 @@
 
 
 
-int Sistema::cria_cadastro(long int cpf_novo, std::string senha_nova){
+int Sistema::cria_cadastro(std::string cpf_novo, std::string senha_nova){
     
-    long int c;
-    std::string cpf_string = std::to_string(cpf_novo);
+    std::string c;
     for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
 
         (*it)->getCPF() = c;
 
-        if(c == cpf_novo|| cpf_novo <= 0 || cpf_string.size() < 11){
+        if(c == cpf_novo|| cpf_novo == "00000000000"|| cpf_novo.size() < 11){
             return 1;
         }
     }
@@ -27,10 +26,10 @@ int Sistema::cria_cadastro(long int cpf_novo, std::string senha_nova){
 }
 
 
-Usuario Sistema::verifica_login(long int c, std::string s){
+Usuario Sistema::verifica_login(std::string c, std::string s){
 
     int aux = 0;
-    longint cpf;
+    std::string cpf;
     std::string senha;
     for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
 
