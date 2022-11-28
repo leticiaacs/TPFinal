@@ -14,6 +14,10 @@
 
 #include <iostream>
 #include <string>
+#include <list>
+
+#include "usuario.hpp"
+#include "acai.hpp"
 
 class Carrinho {
     /**
@@ -21,6 +25,45 @@ class Carrinho {
      * @details parametros e métodos
      */
     
+    private:
+    //std::list<Acai> _pedidosAcai;
+    float _valorFinal;
+
+    public:
+
+   /**
+    * @brief adiciona novo produto ao pedido
+    * @details coloca novo pedido na list de _pedidosAcai
+    * @param acai a
+    */
+    void adicionaProduto(Acai a);
+
+   /**
+    * @brief retira produto do pedido
+    * @details retira pedido da list de _pedidosAcai
+    * @param acai a
+    */
+    void removeProduto(Acai a);
+
+   /**
+    * @brief calcula valor
+    * @details soma valor de todos os pedidos juntos e trata descontos
+    */
+    float calculaTotal();
+
+   /**
+    * @brief texto do pedido
+    * @details imprime descricao de todos os pedidos juntos
+    */
+    std::string descricaoFinal();
+
+   /**
+    * @brief fim
+    * @details chama adciona pedido do usuario e finaliza tratativas
+    * @param usuario u
+    */
+    void finalizaPedido(Usuario *u);
+
 };
 
 #endif
