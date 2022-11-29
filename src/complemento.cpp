@@ -1,15 +1,14 @@
 #include "complemento.hpp"
 
-Complemento(float preco, std::string nome){
+Complemento::Complemento(std::string nome) {
 
     _nome = nome;
 }
-std::string Complemento::getNome()
-{
+
+std::string Complemento::getNome() {
     return _nome;
 }
 
-int Complemento::getPreco()
-{
+int Complemento::getPreco() {
     return _preco;
 }

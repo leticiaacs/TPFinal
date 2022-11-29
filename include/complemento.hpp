@@ -1,7 +1,7 @@
 #ifndef COMPLEMENTO_H
 #define COMPLEMENTO_H
 
-#include "produto.hpp"
+//#include "produto.hpp"
 #include <iostream>
 #include <string>
 
@@ -21,6 +21,7 @@
  * 
  */
 class complementoInvalido : public std::exception {
+    
     private:
         /**
          * @brief String que contém a mensagem de erro
@@ -46,7 +47,10 @@ class complementoInvalido : public std::exception {
 };
 
 
-class Complemento : public Produto {
+class Complemento{
+
+    private:
+        std::string _nome;
     
     public:
         /**
@@ -62,5 +66,7 @@ class Complemento : public Produto {
          * @return Retorna uma string que contém o nome do complemento
          */
         std::string getNome();
+
+
 };
 #endif

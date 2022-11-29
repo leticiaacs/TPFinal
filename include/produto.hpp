@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 /**
  *@file produto.hpp 
@@ -13,6 +14,75 @@
  *@details Classe produto, classe mãe da classe vitamina e da classe açai, tendo funções onde as classes filhas irão herdar
  *@copyright GNU General Public License v2.0
  */
+
+
+
+/**
+ * @brief Classe de tratamento de excessão caso o tamanho do produto seja invalido
+ * 
+ */
+class tamanhoInvalido : public std::exception {
+    
+    protected:
+        /**
+         * @brief Mensagem de erro
+         */
+        std::string _erro;
+    
+    public:
+        /**
+         * @brief Construtora da classe, criando a mensagem de erro
+         * 
+         */
+        tamanhoInvalido(){
+            _erro = "O tamanho inserido é invalido, deseja tentar novamente? (s/n)?"
+        }
+
+        /**
+         * @brief Função que retorna a mensagem de erro
+         * 
+         * @return retorna a string que contém a mensagem de erro
+         */
+        virtual const char* what() const noexcept {
+            return _erro.c_str();
+        }
+}
+
+
+
+
+/**
+ * @brief Classe de tratamento de excessão caso a escolha seja invalida
+ * 
+ */
+class escolhaInvalida : public std::exception {
+    
+    protected:
+        /**
+         * @brief Mensagem de erro
+         */
+        std::string _erro;
+    
+    public:
+        /**
+         * @brief Construtora da classe, criando a mensagem de erro
+         * 
+         */
+        tamanhoInvalido(){
+            _erro = "A escolha inserida é invalida, deseja tentar novamente? (s/n)?"
+        }
+
+        /**
+         * @brief Função que retorna a mensagem de erro
+         * 
+         * @return retorna a string que contém a mensagem de erro
+         */
+        virtual const char* what() const noexcept {
+            return _erro.c_str();
+        }
+}
+
+
 class Produto {
 
     protected:

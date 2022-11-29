@@ -36,7 +36,7 @@ class Vitamina : public Produto
         * @brief Quantidade de vitaminas.
         */
 
-        int _quantidade;
+        //int _quantidade;
 
         /**
         * @brief Sabor da vitamina.
@@ -60,8 +60,7 @@ class Vitamina : public Produto
         * @param sabor - sabor da vitamina.
         */
 
-        Vitamina(int tamanho,
-                std::string sabor);
+        Vitamina(int tamanho, std::string sabor);
         
         /**
 	* @brief Função que retorna o tamanho da vitamina.
@@ -90,7 +89,7 @@ class Vitamina : public Produto
 	* @return float - preço da vitamina.
 	*/
 
-        float calculaPreco();
+        float calculaPreco() override;
 
         /**
 	* @brief Função que faz a descrição da vitamina.
@@ -98,7 +97,7 @@ class Vitamina : public Produto
 	* @return std::string - descrição do açaí.
 	*/
 
-        std::string descricao();
+        std::string descricao() override;
 
         /**
 	* @brief Função que remove sabores da vitamina.
@@ -115,6 +114,8 @@ class Vitamina : public Produto
 	*/
 
         void adicionaSabor(std::string sabor);
+
+        void montar() override;
 };
 
 class saborInvalido : public std::exception

@@ -18,8 +18,7 @@
 *@copyright GNU General Public License v2.0
 */
 
-class Acai : public Produto
-{
+class Acai : public Produto {
 
     /**
     * @brief Classe de montagem do açaí.
@@ -38,7 +37,7 @@ class Acai : public Produto
         * @brief Quantidade de açaí's.
         */
 
-        int _quantidade;
+        //int _quantidade;
 
         /**
         * @brief Vector de tipo Complemento que será usado
@@ -56,8 +55,7 @@ class Acai : public Produto
         * @param quantidade - quantidade de açaí's
         */
 
-        Acai(int tamanho, 
-            int quantidade);
+        //Acai(int tamanho, int quantidade);
         
         /**
 	* @brief Função que retorna o tamanho do açaí.
@@ -79,7 +77,7 @@ class Acai : public Produto
 	* @return float - preço do açaí.
 	*/
 
-        float calculaPreco();
+        float calculaPreco() override;
 
         /**
 	* @brief Função que faz a descrição do açaí.
@@ -87,7 +85,7 @@ class Acai : public Produto
 	* @return std::string - descrição do açaí.
 	*/
 
-        std::string descricao();
+        std::string descricao() override;
 
         /**
 	* @brief Função que remove complementos do açaí.
@@ -111,6 +109,9 @@ class Acai : public Produto
 	*/
 
         void adicionaComplemento(std::string nome);
+
+
+        void montar() override;
 };
 
 class complementoInvalido : public std::exception
