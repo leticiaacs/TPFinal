@@ -1,10 +1,10 @@
 /** 
  * @file carrinho.hpp
- * @author Leon & Naiara Silveira (naiarabarceloss@gmail.com)
- * @brief Classe principal com a lógica do carrinho
+ * @author Leon Marcos Felix Goncalves & Naiara Silveira (naiarabarceloss@gmail.com)
+ * @brief Classe principal com a lógica do carrinho, classe para tratamento de excessoes
  * @version 1.0
  * @date 2022-11-28
- * @details Responsável por setar e retornar os parametros 
+ * @details Carrinho é a classe Responsável por setar e retornar os parametros. Incorreto é a classe que trata excessões
  * da compra
  * @copyright GNU General Public License v2.0
 */
@@ -17,7 +17,42 @@
 #include <list>
 
 #include "usuario.hpp"
-#include "acai.hpp"
+#include "produto.hpp"
+
+class Incorreto : public std::exception{
+
+/**
+	 * @brief Classe para tratamento de exceções, presente nas funções adicionaProduto e removeProduto
+	 * @details Classe que faz o throw para quando os valores inseridos pelo usuário não sao corretos para o a adicao ou exclusao de produtos
+	 */
+
+    
+    private:
+    std::string erro;
+
+    public:
+
+    /**
+	 * @brief Construtor da Classe Incorreto
+	 * @details Constrói um novo objeto da Classe Incorreto definindo uma mensagem de erro para o objeto para 
+	 * quando a função for chamada.
+	 */
+     Incorreto() : erro("Valores nao suportados. Tente novamente com valores inteiros.") {}
+
+
+    /**
+	 * @brief Função que retorna a mensagem de erro 
+	 * @details Função que sobrescreve a função what() da Classe mãe std::exception e retorna a mensagem de erro definida no construtor 
+	 * (Usuario ou senha invalidos. Tente novamente)
+	 * @return const char* erro
+	 */
+    const char* what() const noexcept override {
+		
+		return erro.c_str();
+	}
+};
+
+
 
 class Carrinho {
     /**
@@ -26,30 +61,33 @@ class Carrinho {
      */
     
     private:
-    //std::list<Acai> _pedidosAcai;
+    std::list<Produto> _pedidosProduto;
     float _valorFinal;
 
     public:
 
    /**
     * @brief adiciona novo produto ao pedido
-    * @details coloca novo pedido na list de _pedidosAcai
-    * @param acai a
+    * @details coloca novo pedido na list de _pedidosProduto
+    * @param Produto a
     */
-    void adicionaProduto(Acai a);
+    void adicionaProduto(Produto a);
 
    /**
     * @brief retira produto do pedido
-    * @details retira pedido da list de _pedidosAcai
-    * @param acai a
+    * @details retira pedido da list de _pedidosProduto
+    * @param Produto a
     */
-    void removeProduto(Acai a);
+    void removeProduto(Produto a);
 
    /**
     * @brief calcula valor
     * @details soma valor de todos os pedidos juntos e trata descontos
     */
-    float calculaTotal();
+    float calculaTotal(Usuario u
+    
+    
+    );
 
    /**
     * @brief texto do pedido
@@ -57,12 +95,7 @@ class Carrinho {
     */
     std::string descricaoFinal();
 
-   /**
-    * @brief fim
-    * @details chama adciona pedido do usuario e finaliza tratativas
-    * @param usuario u
-    */
-    void finalizaPedido(Usuario *u);
+   
 
 };
 
