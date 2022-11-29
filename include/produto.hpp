@@ -55,10 +55,10 @@ class Produto {
 
         /**
          * 
-         *@brief Exibe todos os produtor disponiveis na loja
+         *@brief Exibe todos os produtos disponiveis na loja
          * 
          */
-        virtual void exibeProdutos() = 0;
+        void exibeProdutos();
 
         /**
          * @brief Retorna o preco unitario do produto

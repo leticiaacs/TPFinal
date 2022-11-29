@@ -2,7 +2,6 @@
 
 Complemento(float preco, std::string nome){
 
-    _preco = preco;
     _nome = nome;
 }
 std::string Complemento::getNome()

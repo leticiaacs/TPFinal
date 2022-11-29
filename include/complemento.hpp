@@ -5,40 +5,62 @@
 #include <iostream>
 #include <string>
 
+
 /**
 *@file complemento.hpp
-*@author Yaggo Cardoso
-*@brief Classe usada para adicionar complementos ao açaí
+*@author Luiz Kevenin
+*@brief Classe utilizada para adicionar complementos ao açaí
 *@version 1.0
 *@date 27/11/2022
-*@details Classe Sistema responsável por realizar o procedimento de cadastro e login da loja de açaí, juntamente com a exibição de produtos disponíveis e Classe escolhaInvalida que faz o tratamento de exceções
+*@details Classe utilizada para a criação de complementos para o acai
 *@copyright GNU General Public License v2.0
 */
 
-class Complemento : public Produto
-{
+/**
+ * @brief Classe de tratamento de excessões
+ * 
+ */
+class complementoInvalido : public std::exception {
     private:
-        std::string _nome;
-    
+        /**
+         * @brief String que contém a mensagem de erro
+         */
+        std::string _msg;
+
     public:
-        Complemento(std::string nome);
-        std::string getNome();
+        /**
+         * @brief Construtora da classe, controi a mensagem de erro
+         */
+        complementoInvalido() {
+            _msg = "Complemento invalido, deseja tentar novamente? (s/n)?";     
+        }
+
+        /**
+         * @brief Função onde retorna a mensagem de erro
+         * 
+         * @return uma string que contém a mensagem de erro
+         */
+        const char* what() const noexcept override {
+            return _msg.c_str();
+        }
 };
 
-class escolhaInvalida2 : public std::exception
-{
-    private:
-        std::string _msg_erro;
 
+class Complemento : public Produto {
+    
     public:
-        escolhaInvalida2()
-        {
-            _msg_erro = "Comando inválido, deseja tentar novamente? Pressione S para sim ou qualquer outro caractere para voltar ao menu inicial.";     
-        }
+        /**
+         * @brief Construtora do objeto complemento
+         * 
+         * @param nome string que recebe o nome do complemento
+         */
+        Complemento(std::string nome);
 
-        const char* what() const noexcept override
-        {
-            return _msg_erro.c_str();
-        }
+        /**
+         * @brief Retorna o nome do complemento
+         * 
+         * @return Retorna uma string que contém o nome do complemento
+         */
+        std::string getNome();
 };
 #endif
