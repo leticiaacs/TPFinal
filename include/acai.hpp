@@ -22,9 +22,9 @@ class Acai : public Produto
 {
 
     /**
-	* @brief Classe de montagem do açaí.
-	* @details Classe Acai que recebe dois objetos e uma estutura de dados que que será usada para a montagem do açaí.
-	*/
+    * @brief Classe de montagem do açaí.
+    * @details Classe Acai que recebe dois objetos e uma estutura de dados que que será usada para a montagem do açaí.
+    */
 
     private:
 
@@ -50,8 +50,8 @@ class Acai : public Produto
     public:
 
         /**
-	    * @brief Construtor da Classe Acai.
-	    * @details Constrói dois novos objetos da Classe Acai.
+	* @brief Construtor da Classe Acai.
+	* @details Constrói dois novos objetos da Classe Acai.
         * @param tamanho - tamanho do açaí
         * @param quantidade - quantidade de açaí's
         */
@@ -60,54 +60,55 @@ class Acai : public Produto
             int quantidade);
         
         /**
-	    * @brief Função que retorna o tamanho do açaí.
-	    * @return int - tamanho do açaí.
-	    */
+	* @brief Função que retorna o tamanho do açaí.
+	* @return int - tamanho do açaí.
+	*/
 
         int getTamanho();
 
         /**
-	    * @brief Função que retorna a quantidade de açaí's.
-	    * @return int - quantidade de açaí's.
-	    */
+	* @brief Função que retorna a quantidade de açaí's.
+	* @return int - quantidade de açaí's.
+	*/
+	
         int getQuantidade();
 
         /**
-	    * @brief Função que calcula o preço total do açaí.
+	* @brief Função que calcula o preço total do açaí.
         * @details Função que faz a soma total de quantidade, tamanho e complementos do açaí, retornando o valor final.
-	    * @return float - preço do açaí.
-	    */
+	* @return float - preço do açaí.
+	*/
 
         float calculaPreco();
 
         /**
-	    * @brief Função que faz a descrição do açaí.
-	    * @details Função que faz a leitura de todos os atributos e retorna uma descrição detalhada dos componentes do açaí.
-	    * @return std::string - descrição do açaí.
-	    */
+	* @brief Função que faz a descrição do açaí.
+	* @details Função que faz a leitura de todos os atributos e retorna uma descrição detalhada dos componentes do açaí.
+	* @return std::string - descrição do açaí.
+	*/
 
         std::string descricao();
 
         /**
-	    * @brief Função que remove complementos do açaí.
-	    * @details Função que acessa o vector de Complemento e remove o último complemento adicionado.
+	* @brief Função que remove complementos do açaí.
+	* @details Função que acessa o vector de Complemento e remove o último complemento adicionado.
         * @param nome - nome do complemento a ser removido.
-	    */
+	*/
 
         void removeComplemento(std::string nome);
 
         /**
-	    * @brief Função que remove complemento incorreto do açaí.
-	    * @details Função que acessa o vector de Complemento e remove o último complemento adicionado.
-	    */
+	* @brief Função que remove complemento incorreto do açaí.
+	* @details Função que acessa o vector de Complemento e remove o último complemento adicionado.
+	*/
 
         void removeComplementoIncorreto();
 
         /**
-	    * @brief Função que adiciona complementos ao açaí.
-	    * @details Função que acessa o vector de Complemento e adicona um novo complemento ao açaí.
+	* @brief Função que adiciona complementos ao açaí.
+	* @details Função que acessa o vector de Complemento e adicona um novo complemento ao açaí.
         * @param nome - nome do complemento a ser adicionado.
-	    */
+	*/
 
         void adicionaComplemento(std::string nome);
 };
@@ -116,34 +117,39 @@ class complementoInvalido : public std::exception
 {
 
     /**
-	* @brief Classe para tratamento de exceções, presente na função removeComplemento e adicionaComplemento.
-	* @details Classe que faz o throw para quando o nome do complemento inserido não coincidir com as opções.
-	*/
+    * @brief Classe para tratamento de exceções, presente na função removeComplemento e adicionaComplemento.
+    * @details Classe que faz o throw para quando o nome do complemento inserido não coincidir com as opções.
+    */
 
     private:
-        std::string _msg_erro;
+    
+    	/**
+        * @brief Mensagem de erro para complemento.
+        */
+	
+        std::string _msg_erro_complemento;
 
     public:
 
         /**
-	    * @brief Construtor da Classe complementoInvalido.
-	    * @details Constroi um novo objeto para a Classe complementoInvalido e define uma mensagem de erro.
-	    */
+	* @brief Construtor da Classe complementoInvalido.
+	* @details Constroi um novo objeto para a Classe complementoInvalido e define uma mensagem de erro.
+	*/
 
         complementoInvalido()
         {
-            _msg_erro = "Complemento inválido. Pressione S se deseja remover o último complemento adicionado ou N se deseja ignorar e seguir em frente.";     
+            _msg_erro_complemento = "Complemento inválido. Pressione S se deseja remover o último complemento adicionado ou N se deseja ignorar e seguir em frente.";     
         }
 
         /**
-	    * @brief Função que retorna uma mensagem de erro.
-	    * @details Função que sobrescreve a função what() da Classe mãe std::exception e retorna a mensagem de erro definida no construtor.
-	    * @return const char* mensagem de erro.
-	    */
+	* @brief Função que retorna uma mensagem de erro.
+	* @details Função que sobrescreve a função what() da Classe mãe std::exception e retorna a mensagem de erro definida no construtor.
+	* @return const char* mensagem de erro.
+	*/
 
         const char* what() const noexcept override
         {
-            return _msg_erro.c_str();
+            return _msg_erro_complemento.c_str();
         }
 };
 #endif
