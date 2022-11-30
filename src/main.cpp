@@ -79,8 +79,20 @@ do {
     else if(c =='V')
         p = new Vitamina();
         
-    p->monta_produto();
-    ca->adiciona_produto();
+    p->montar();
+
+    int aux = 0;
+
+    do{
+        try{
+            ca->adicionaProduto(&p);
+        }
+
+        catch(Incorreto &e) {
+            std::cout<<e.what()<<std::endl;
+            aux = 1;
+        }
+    } while (aux == 1);
 
     std::cout<< "Prontinho! Seu pedido escolhido foi: " << p->descricao()<<std::endl;
     std::cout<< "Ja adicionamos o produto no carrinho! Deseja pedir mais alguma coisa? Digite 1 para nao ou qualquer outra tecla para sim"<<std::endl;
@@ -105,11 +117,19 @@ do{
     std::cin>>e;
     
     if(e ==1){
-        ca->remove_produto();
-        aux = 0;
-    }
+        int aux = 0;
+        do{
+            try{
+                ca->removeProduto();
+            }
+
+            catch(Incorreto &e) {
+                std::cout<<e.what()<<std::endl;
+                aux = 1;
+            }
+        }while(aux == 1);
     else {
-        u.adiciona_qtd();
+        u.aumentaQtdCompras(&p);
         aux = 1;
     }
 } while(aux == 0);

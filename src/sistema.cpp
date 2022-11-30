@@ -1,8 +1,7 @@
 #include <iostream>
 #include <list>
 #include <string>
-#include <map>
-
+#include "usuario.hpp"
 #include "sistema.hpp"
 
 
@@ -53,7 +52,7 @@ Usuario Sistema::verifica_login(std::string c, std::string s){
 std::string Sistema::informacoes_produtos() {
 
     Produto p = Produto();    
-    p.descricao_geral();
+    p.exibeProdutos();
        
 }
 
