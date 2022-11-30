@@ -52,8 +52,8 @@ class Acai : public Produto
     public:
 
         /**
-	    * @brief Construtor da Classe Acai.
-	    * @details Constrói dois novos objetos da Classe Acai.
+	* @brief Construtor da Classe Acai.
+	* @details Constrói dois novos objetos da Classe Acai.
         * @param tamanho - tamanho do açaí
         * @param quantidade - quantidade de açaí's
         */
@@ -61,31 +61,31 @@ class Acai : public Produto
         Acai(int tamanho, int quantidade);
 
         /**
-	    * @brief Função que calcula o preço total do açaí.
+	* @brief Função que calcula o preço total do açaí.
         * @details Função que faz a soma total de quantidade, 
         * tamanho e complementos do açaí, retornando o valor final.
-	    * @return float - preço do açaí.
-	    */
+	* @return float - preço do açaí.
+	*/
 
         float calculaPreco() override;
 
         /**
-	    * @brief Função que faz a descrição do açaí.
-	    * @details Função que faz a leitura de todos os atributos e 
+	* @brief Função que faz a descrição do açaí.
+	* @details Função que faz a leitura de todos os atributos e 
         * retorna uma descrição detalhada dos componentes do açaí.
-	    * @return std::string - descrição do açaí.
-	    */
+	* @return std::string - descrição do açaí.
+	*/
 
         std::string descricao() override;
 
         /**
-	    * @brief Função que faz a montagem do açaí.
-	    * @details Função que fará contato iterativo com o cliente para
+	* @brief Função que faz a montagem do açaí.
+	* @details Função que fará contato iterativo com o cliente para
         * a montagem do açaí. Receberá o tamanho do açaí desejado, uma 
         * quantia de 1 a 5 complementos a serem inseridos, remoção de 
         * complementos a serem removidos do açaí e finalizando quando o
         * cliente estiver satisfeito com seu pedido.
-	    */
+	*/
 
         void montar() override;
 };
@@ -110,10 +110,10 @@ class complementoInvalido : public std::exception
     public:
 
         /**
-	    * @brief Construtor da Classe complementoInvalido.
-	    * @details Constroi um novo objeto para a Classe 
+	* @brief Construtor da Classe complementoInvalido.
+	* @details Constroi um novo objeto para a Classe 
         * complementoInvalido e define uma mensagem de erro.
-	    */
+	*/
 
         complementoInvalido()
         {
@@ -121,11 +121,11 @@ class complementoInvalido : public std::exception
         }
 
         /**
-	    * @brief Função que retorna uma mensagem de erro.
-	    * @details Função que sobrescreve a função what() da Classe mãe 
+	* @brief Função que retorna uma mensagem de erro.
+	* @details Função que sobrescreve a função what() da Classe mãe 
         * std::exception e retorna a mensagem de erro definida no construtor.
-	    * @return const char* mensagem de erro.
-	    */
+	* @return const char* mensagem de erro.
+	*/
 
         const char* what() const noexcept override
         {
@@ -152,10 +152,10 @@ class limiteDeComplementos : public std::exception
     public:
 
         /**
-	    * @brief Construtor da Classe limiteDeComplementos.
-	    * @details Constroi um novo objeto para a Classe 
+	* @brief Construtor da Classe limiteDeComplementos.
+	* @details Constroi um novo objeto para a Classe 
         * limiteDeComplementos e define uma mensagem de erro.
-	    */
+	*/
 
         limiteDeComplementos()
         {
@@ -163,11 +163,11 @@ class limiteDeComplementos : public std::exception
         }
 
         /**
-	    * @brief Função que retorna uma mensagem de erro.
-	    * @details Função que sobrescreve a função what() da Classe mãe
+	* @brief Função que retorna uma mensagem de erro.
+	* @details Função que sobrescreve a função what() da Classe mãe
         * std::exception e retorna a mensagem de erro definida no construtor.
-	    * @return const char* mensagem de erro.
-	    */
+	* @return const char* mensagem de erro.
+	*/
 
         const char* what() const noexcept override
         {
@@ -194,10 +194,10 @@ class acaiSemComplementos : public std::exception
     public:
 
         /**
-	    * @brief Construtor da Classe AcaiSemComplementos.
-	    * @details Constroi um novo objeto para a Classe AcaiSemComplementos 
+	* @brief Construtor da Classe AcaiSemComplementos.
+	* @details Constroi um novo objeto para a Classe AcaiSemComplementos 
         * e define uma mensagem de erro.
-	    */
+	*/
 
         acaiSemComplementos()
         {
@@ -205,11 +205,11 @@ class acaiSemComplementos : public std::exception
         }
 
         /**
-	    * @brief Função que retorna uma mensagem de erro.
-	    * @details Função que sobrescreve a função what() da Classe mãe 
+	* @brief Função que retorna uma mensagem de erro.
+	* @details Função que sobrescreve a função what() da Classe mãe 
         * std::exception e retorna a mensagem de erro definida no construtor.
-	    * @return const char* mensagem de erro.
-	    */
+	* @return const char* mensagem de erro.
+	*/
 
         const char* what() const noexcept override
         {
