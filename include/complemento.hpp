@@ -3,6 +3,12 @@
 
 #include <iostream>
 #include <string>
+#include "usuario.hpp"
+#include "sistema.hpp"
+#include "produto.hpp"
+#include "carrinho.hpp"
+#include "acai.hpp"
+#include "vitamina.hpp"
 
 
 /**
@@ -14,36 +20,6 @@
 *@details Classe utilizada para a criação de complementos para o acai
 *@copyright GNU General Public License v2.0
 */
-
-/**
- * @brief Classe de tratamento de excessões
- * 
- */
-class complementoInvalido : public std::exception {
-    
-    private:
-        /**
-         * @brief String que contém a mensagem de erro
-         */
-        std::string _msg;
-
-    public:
-        /**
-         * @brief Construtora da classe, controi a mensagem de erro
-         */
-        complementoInvalido() {
-            _msg = "Complemento invalido, deseja tentar novamente? (s/n)?";     
-        }
-
-        /**
-         * @brief Função onde retorna a mensagem de erro
-         * 
-         * @return uma string que contém a mensagem de erro
-         */
-        const char* what() const noexcept override {
-            return _msg.c_str();
-        }
-};
 
 
 class Complemento{
@@ -65,6 +41,13 @@ class Complemento{
          * @return Retorna uma string que contém o nome do complemento
          */
         std::string getNome();
+		
+		 /**
+         * @brief Retorna o preço do complemento
+         * 
+         * @return Retorna um int que contém o nome do complemento
+         */
+		int getPreco();
 
 
 };
