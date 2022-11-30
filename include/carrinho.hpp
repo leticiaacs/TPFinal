@@ -3,7 +3,7 @@
  * @author Leon Marcos Felix Goncalves & Naiara Silveira (naiarabarceloss@gmail.com)
  * @brief Classe principal com a lógica do carrinho, classe para tratamento de excessoes
  * @version 1.0
- * @date 2022-11-28
+ * @date 2022-11-30
  * @details Carrinho é a classe Responsável por setar e retornar os parametros. Incorreto é a classe que trata excessões
  * da compra
  * @copyright GNU General Public License v2.0
@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 
 #include "usuario.hpp"
 #include "produto.hpp"
@@ -43,7 +43,7 @@ class Incorreto : public std::exception{
     /**
 	 * @brief Função que retorna a mensagem de erro 
 	 * @details Função que sobrescreve a função what() da Classe mãe std::exception e retorna a mensagem de erro definida no construtor 
-	 * (Usuario ou senha invalidos. Tente novamente)
+	 * (Valores nao suportados. Tente novamente com valores inteiros.)
 	 * @return const char* erro
 	 */
     const char* what() const noexcept override {
@@ -61,21 +61,21 @@ class Carrinho {
      */
     
     private:
-    std::list<Produto> _pedidosProduto;
+    std::vector<Produto> _pedidosProduto;
     float _valorFinal;
 
     public:
 
    /**
     * @brief adiciona novo produto ao pedido
-    * @details coloca novo pedido na list de _pedidosProduto
+    * @details coloca novo pedido na vector de _pedidosProduto
     * @param Produto a
     */
     void adicionaProduto(Produto a);
 
    /**
     * @brief retira produto do pedido
-    * @details retira pedido da list de _pedidosProduto
+    * @details retira pedido da vector de _pedidosProduto
     * @param Produto a
     */
     void removeProduto(Produto a);
@@ -84,10 +84,7 @@ class Carrinho {
     * @brief calcula valor
     * @details soma valor de todos os pedidos juntos e trata descontos
     */
-    float calculaTotal(Usuario u
-    
-    
-    );
+    float calculaTotal(Usuario u);
 
    /**
     * @brief texto do pedido
