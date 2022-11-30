@@ -7,7 +7,7 @@ TARGET := main.out
 
 all: main
 
-sistema:
+sistema: usuario produto
 	@mkdir build/sistema/
 	$(CC) $(FLAGS) -c src/sistema.cpp -o build/sistema.o
 

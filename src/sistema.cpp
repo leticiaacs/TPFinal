@@ -3,6 +3,7 @@
 #include <string>
 #include "usuario.hpp"
 #include "sistema.hpp"
+#include "produto.hpp"
 
 
 
@@ -18,7 +19,7 @@ int Sistema::cria_cadastro(std::string cpf_novo, std::string senha_nova){
         }
     }
 
-    Usuario *u = new Usuario(cpf, senha, 0);
+    Usuario *u = new Usuario(cpf_novo, senha_nova, 0);
     banco_de_usuarios.push_back(u);
 
     return 0;
@@ -37,14 +38,14 @@ Usuario Sistema::verifica_login(std::string c, std::string s){
 
         if(c == cpf && s == senha){
             aux++;
-            return *it;
+            return it;
         }
     }
 
     if(aux == 0){
 
         throw DadosInvalidos();
-        return 0;
+        exit(1);
     }
 
 }
