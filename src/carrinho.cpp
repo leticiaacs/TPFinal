@@ -14,14 +14,12 @@
 #include <iostream>
 #include <vector>
 #include <string>
-
-
 #include "carrinho.hpp"
 #include "usuario.hpp"
 #include "produto.hpp"
 
 
-    void Carrinho::adicionaProduto(Produto a){
+    void Carrinho::adicionaProduto(Produto* a){
 
         int c=0;
 
@@ -44,54 +42,40 @@
         }
     }
 
-    void Carrinho::removeProduto(Produto a){
+    void Carrinho::removeProduto(){
 
         int c=0;
 
-        std::cout<<"Você tem certeza que deseja remover este produto ao carrinho? Digite 1 para sim e 2 para nao."<<std::endl;
+        std::cout<<"Qual produto deseja remover? Digite o NUMERO do produto de acordo com a ordem do pedido"<<std::endl;
         std::cin>>c;
 
-        if(c==1){
+        for(std::vector<Produto*>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
-            for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
-
-                if((*it)->descricao()==a.descricao()){
-                    _pedidosProduto.erase(it);//Remove se o produto bater com a descricao de algum produto da lista
-                    break;
-                }
-
-            }
-
-            std::cout<<"Produto removido da lista com sucesso!"<<std::endl;
-
-        }else if(c==2){
-
-            std::cout<<"Produto nao removido da lista."<<std::endl;
-
-        }else{
-
-            throw Incorreto();
-
+            if(it == (_pedidosProduto.begin() +c - 1))
+				_pedidosProduto.erase(it);
         }
+
+
+        std::cout<<"Produto removido da lista com sucesso!"<<std::endl;
         
     }
 
-    float Carrinho::calculaTotal(Usuario u){
+    float Carrinho::calculaTotal(Usuario* u){
 
-        for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
+        for(std::vector<Produto*>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
-            this->_valorFinal= this->_valorFinal+(*it)->getPreco();//Soma o valor de cada produto da lista
+            this->_valorFinal= this->_valorFinal+(*it)->calculaPreco();//Soma o valor de cada produto da lista
 
         }
 
-        if(u.verificaDesconto()!=0){//retorna preco conforme desconto do usuario
+        if(u->verificaDesconto()!=0){//retorna preco conforme desconto do usuario
            
             this->_valorFinal=this->_valorFinal*DESCONTO;
-            return this->valorFinal;
+            return this->_valorFinal;
 
         }else{
             
-            return this->valorFinal;
+            return this->_valorFinal;
 
         }
 
@@ -99,10 +83,10 @@
 
     void Carrinho::descricaoFinal(){
 
-        for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
+        for(std::vector<Produto*>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
            std::cout<< (*it)->descricao()<<std::endl;//Exibe a descrição de cada produto da lista
 
         }
 
-    }
+}

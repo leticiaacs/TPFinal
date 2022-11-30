@@ -12,8 +12,12 @@
 
 #include "doctest.h"
 #include "carrinho.hpp"
+#include "produto.hpp"
 
 TEST_CASE("Testando adicionaProduto"){
+
+    Carrinho carrinho = Carrinho();
+    Produto produto = Produto();
 
     SUBCASE("Caso geral: produto adicionado corretamente"){
 
@@ -24,7 +28,7 @@ TEST_CASE("Testando adicionaProduto"){
     }
 
     SUBCASE("Usuario entra com uma escolha invalida"){
-
+            CHECK_THROWS(carrinho.adicionaProduto(Produto a));
     }
 
 }

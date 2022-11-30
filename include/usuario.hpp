@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <string>
+#include "usuario.hpp"
+
 
 class Usuario {
 
@@ -29,6 +31,13 @@ class Usuario {
    int _qtdCompras;
    
    public:
+   
+	 /**
+    * @brief construtor vazio
+    * @details constrói um novo usuário sem nenhum parâmetro
+    */
+	
+	Usuario() = default;
 
    /**
     * @brief criação de um novo cadastro

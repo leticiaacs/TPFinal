@@ -4,6 +4,10 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include "usuario.hpp"
+#include "sistema.hpp"
+#include "produto.hpp"
+#include "carrinho.hpp"
 
 /**
 *@file sistema.hpp
@@ -87,14 +91,13 @@ class Sistema {
 	 * @param s - string senha inserida pelo usuário para fazer login
 	 * @return Usuario - retorna o usuário identificado pelo login, para ser usado em outras funções da main posteriormente
 	 */
-	Usuario verifica_login(std::string c, std::string s);
+	Usuario* verifica_login(std::string c, std::string s);
 
 	/**
 	 * @brief Função que exibe informações dos produtos
 	 * @details Função que mostra ao usuário todos os produtos disponíveis na loja
-	 * @return std::string - mensagem em formato de string que descreve os produtos disponíveis e suas variações
 	 */
-	std::string informacoes_produtos();
+	void informacoes_produtos();
 };
 
 

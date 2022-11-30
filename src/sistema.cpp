@@ -26,11 +26,12 @@ int Sistema::cria_cadastro(std::string cpf_novo, std::string senha_nova){
 }
 
 
-Usuario Sistema::verifica_login(std::string c, std::string s){
+Usuario* Sistema::verifica_login(std::string c, std::string s){
 
     int aux = 0;
     std::string cpf;
     std::string senha;
+	Usuario *u;
     for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
 
         (*it)->getCPF() = cpf;
@@ -38,7 +39,7 @@ Usuario Sistema::verifica_login(std::string c, std::string s){
 
         if(c == cpf && s == senha){
             aux++;
-            return it;
+            u = new Usuario(c, s, 0);
         }
     }
 
@@ -47,13 +48,18 @@ Usuario Sistema::verifica_login(std::string c, std::string s){
         throw DadosInvalidos();
         exit(1);
     }
+	
+	else 
+		return u;
 
 }
 
-std::string Sistema::informacoes_produtos() {
+void Sistema::informacoes_produtos() {
 
-    Produto p = Produto();    
-    p.exibeProdutos();
-       
+    std::cout << "Produtos disponíveis na loja:" << std::endl;
+    std::cout << "Acai 300, 500 e 700 ml" << std::endl << "Complementos do acai:" << std::endl;
+    std::cout << "Banana  -  Granola  -  Morango  -  Leite ninho  -  Leite condensado" << std::endl;
+    std::cout << std::endl << "Vitamina 300, 500 e 700 ml" << "Sabores da vitamina:" << std::endl;
+	std::cout << std::endl << "Acai, Banana, Morango e Abacaxi" << std::endl;
 }
 

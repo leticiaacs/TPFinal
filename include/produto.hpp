@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "produto.hpp"
 
 /**
  *@file produto.hpp 
@@ -35,7 +36,7 @@ class tamanhoInvalido : public std::exception {
          * 
          */
         tamanhoInvalido(){
-            _erro = "O tamanho inserido é invalido, deseja tentar novamente? (s/n)?"
+            _erro = "O tamanho inserido é invalido, tente novamente)?";
         }
 
         /**
@@ -46,50 +47,12 @@ class tamanhoInvalido : public std::exception {
         virtual const char* what() const noexcept {
             return _erro.c_str();
         }
-}
-
-
-
-
-/**
- * @brief Classe de tratamento de excessão caso a escolha seja invalida
- * 
- */
-class escolhaInvalida : public std::exception {
-    
-    protected:
-        /**
-         * @brief Mensagem de erro
-         */
-        std::string _erro;
-    
-    public:
-        /**
-         * @brief Construtora da classe, criando a mensagem de erro
-         * 
-         */
-        tamanhoInvalido(){
-            _erro = "A escolha inserida é invalida, deseja tentar novamente? (s/n)?"
-        }
-
-        /**
-         * @brief Função que retorna a mensagem de erro
-         * 
-         * @return retorna a string que contém a mensagem de erro
-         */
-        virtual const char* what() const noexcept {
-            return _erro.c_str();
-        }
-}
+};
 
 
 class Produto {
 
     protected:
-        /**
-         * @brief Nome do produto
-         */
-        std::string _nome;
 
         /**
          * @brief Preco do produto
@@ -102,15 +65,24 @@ class Produto {
         int _tamanho;
     
     public:
+	
+		/**
+		* @brief Construtor da Classe Produto
+		*
+		* @details Constrói um novo objeto da Classe Produto, usando um construtor vazio 
+		*/
+		
+		Produto() = default;
+
         /**
-         * @brief calcula o preço unitario do produto
+         * @brief função virtual que calcula o preço unitario do produto
          * 
          * @return float Preco do Produto
          */
         virtual float calculaPreco() = 0;
         
         /**
-         * @brief Retorna a descricao detalhada do produto
+         * @brief função virtual que retorna a descricao detalhada do produto
          * 
          * @return std::string Descricao do produto
          */
@@ -118,30 +90,10 @@ class Produto {
 
         /**
          * 
-         *@brief Chama todas as funções para montar um acai ou uma vitamina
+         *@brief função virtual que chama todas as funções para montar um acai ou uma vitamina
          * 
          */
         virtual void montar() = 0;
 
-        /**
-         * 
-         *@brief Exibe todos os produtos disponiveis na loja
-         * 
-         */
-        void exibeProdutos();
 
-        /**
-         * @brief Retorna o preco unitario do produto
-         * 
-         * @return float preco unitario do produto
-         */
-        float getPreco() const;
-
-        /**
-         * @brief retorna o tamanho do produto
-         * 
-         * @return int tamanho do produto
-         */
-        int getTamanho() const;
-};
 #endif

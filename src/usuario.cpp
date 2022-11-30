@@ -9,9 +9,9 @@
  * @copyright GNU General Public License v2.0
 */
 
-#include "usuario.hpp"
 #include <iostream>
 #include <string>
+#include "usuario.hpp"
 
 //construtor de um novo usuario
 Usuario::Usuario(std::string cpf, std::string senha, int qtdCompras){

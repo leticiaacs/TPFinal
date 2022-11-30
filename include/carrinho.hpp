@@ -15,7 +15,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include "carrinho.hpp"
 #include "usuario.hpp"
 #include "produto.hpp"
 
@@ -61,7 +61,7 @@ class Carrinho {
      */
     
     private:
-    std::vector<Produto> _pedidosProduto;
+    std::vector<Produto*> _pedidosProduto;
     float _valorFinal;
 
     public:
@@ -71,20 +71,19 @@ class Carrinho {
     * @details coloca novo pedido na vector de _pedidosProduto
     * @param Produto a
     */
-    void adicionaProduto(Produto a);
+    void adicionaProduto(Produto* a);
 
    /**
     * @brief retira produto do pedido
     * @details retira pedido da vector de _pedidosProduto
-    * @param Produto a
     */
-    void removeProduto(Produto a);
+    void removeProduto();
 
    /**
     * @brief calcula valor
     * @details soma valor de todos os pedidos juntos e trata descontos
     */
-    float calculaTotal(Usuario u);
+    float calculaTotal(Usuario* u);
 
    /**
     * @brief texto do pedido

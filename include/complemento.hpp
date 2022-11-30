@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+#include "complemento.hpp"
+
+
 
 /**
 *@file complemento.hpp
@@ -15,49 +18,21 @@
 *@copyright GNU General Public License v2.0
 */
 
-/**
- * @brief Classe de tratamento de excessões
- * 
- */
-class complementoInvalido : public std::exception {
-    
-    private:
-        /**
-         * @brief String que contém a mensagem de erro
-         */
-        std::string _msg;
-
-    public:
-        /**
-         * @brief Construtora da classe, controi a mensagem de erro
-         */
-        complementoInvalido() {
-            _msg = "Complemento invalido, deseja tentar novamente? (s/n)?";     
-        }
-
-        /**
-         * @brief Função onde retorna a mensagem de erro
-         * 
-         * @return uma string que contém a mensagem de erro
-         */
-        const char* what() const noexcept override {
-            return _msg.c_str();
-        }
-};
-
 
 class Complemento{
 
     private:
         std::string _nome;
+		float _preco;
     
     public:
         /**
          * @brief Construtora do objeto complemento
          * 
          * @param nome string que recebe o nome do complemento
+		 * @param preço float que recebe o preco do complemento
          */
-        Complemento(std::string nome);
+        Complemento(std::string nome, float preco);
 
         /**
          * @brief Retorna o nome do complemento
@@ -65,6 +40,13 @@ class Complemento{
          * @return Retorna uma string que contém o nome do complemento
          */
         std::string getNome();
+		
+		 /**
+         * @brief Retorna o preço do complemento
+         * 
+         * @return Retorna um int que contém o nome do complemento
+         */
+		int getPreco();
 
 
 };

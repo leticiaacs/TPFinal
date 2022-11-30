@@ -1,5 +1,11 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
 #include "acai.hpp"
 #include "complemento.hpp"
+#include "produto.hpp"
+
 
 const float preco_Banana = 1.50;
 const float preco_Granola = 1.50;
@@ -7,10 +13,41 @@ const float preco_Morango = 2.00;
 const float preco_LeiteNinho = 2.50;
 const float preco_LeiteCondensado = 2.50;
 
-Acai::Acai(int tamanho, int quantidade)
+float Acai::calculaPreco()  
 {
-    _tamanho = tamanho;
-    _quantidade = quantidade;
+    float soma;
+	
+    std::vector<Complemento*>::iterator it;
+    for(it = _acrescimos.begin(); it != _acrescimos.end(); it++)
+    {
+        if((*it)->getNome() == "Banana")
+            soma = soma + preco_Banana;
+        else if((*it)->getNome() == "Granola")
+            soma = soma + preco_Granola;
+        else if((*it)->getNome() == "Morango")
+            soma = soma + preco_Morango;
+        else if((*it)->getNome() == "Leite ninho")
+            soma = soma + preco_LeiteNinho;
+        else if((*it)->getNome() == "Leite condensado")
+            soma = soma + preco_LeiteCondensado;
+    }
+    return soma + _tamanho*0.025;
+}
+
+std::string Acai::descricao() 
+{
+	
+	std::string descricao;
+    descricao ="Acai de " + std::to_string(_tamanho) + " com complementos: ";
+
+
+    std::vector<Complemento*>::iterator it;
+    for(it = _acrescimos.begin(); it != _acrescimos.end(); it++)
+    {
+        descricao = descricao + (*it)->getNome();
+    }
+	    descricao = descricao + '\n';
+    return descricao;
 }
 
 void Acai::montar() 
@@ -27,9 +64,9 @@ void Acai::montar()
         _tamanho = 500;
     } else if(n == 3){
         _tamanho = 700;
-    } else {
-        throw tamanhoInvalido();
-    }
+	}else {
+		throw tamanhoInvalido();
+	}
 
     std::cout << "Você tem direito a escolher 5 complementos" << std::endl;
     do
@@ -39,23 +76,21 @@ void Acai::montar()
         std::cin >> n;
 
         if(n == 1){
-            Complemento a = Complemento("Banana");
+            Complemento *a = new Complemento("Banana", preco_Banana);
             _acrescimos.push_back(a);
         } else if(n == 2){
-            Complemento a = Complemento("Granola");
+            Complemento *a = new Complemento("Granola", preco_Granola);
             _acrescimos.push_back(a);
         } else if(n == 3){
-            Complemento a = Complemento("Morango");
+            Complemento *a = new Complemento("Morango", preco_Morango);
             _acrescimos.push_back(a);
         } else if(n == 4){
-            Complemento a = Complemento("Leite ninho");
+            Complemento *a = new Complemento("Leite ninho", preco_LeiteNinho);
             _acrescimos.push_back(a);
         } else if(n == 5){
-            Complemento a = Complemento("Leite condensado");
+            Complemento *a = new Complemento("Leite condensado", preco_LeiteCondensado);
             _acrescimos.push_back(a);
-        } else {
-            throw complementoInvalido();
-        }
+        } 
 
         std::cout << "Deseja adicionar mais complementos ao seu açaí? (s/n)?" << std::endl;
         std::cin >> c;
@@ -65,7 +100,7 @@ void Acai::montar()
         } 
         if(m > 4)
         {
-            throw limiteDeComplementos();
+            std:: cout << "Você chegou ao limite de complementos."<<std::endl;
             c = 'n';
         }
     }while(c == 's');
@@ -77,16 +112,10 @@ void Acai::montar()
         do{
             std::cout << "Digite o nome do complemento que deseja remover." << std::endl;
             std::cin >> str;
-            
-            if(str != "banana" && str != "granola" && str != "morango" && str != "leite ninho" && str != "leite condensado") 
-            {
-                throw complementoInvalido();
-            }
 
-            std::vector<Complemento>::iterator it;
-            for(it = _acrescimos.begin(); it != _acrescimos.end(); it++)
+            for(std::vector<Complemento*>::iterator it = _acrescimos.begin(); it != _acrescimos.end(); it++)
             {
-                if(it->Complemento::getNome() == str)
+                if((*it)->getNome() == str)
                 {
                     _acrescimos.erase(it);
                     break;
@@ -96,52 +125,10 @@ void Acai::montar()
             std::cin >> c;
             if(_acrescimos.size() == 0)
             {
-                throw acaiSemComplementos();
                 c = 'n';
             }
         }while(c == 's');
     } 
-    else if(c != 's' && c != 'n')
-    {
-        throw escolhaInvalida();
-    }
+
 }
 
-float Acai::calculaPreco()  
-{
-    float soma;
-
-    std::vector<Complemento>::iterator it;
-    for(it = _acrescimos.begin(); it != _acrescimos.end(); it++)
-    {
-        if(it->Complemento::getNome() == "banana")
-            soma = soma + preco_Banana;
-        else if(it->Complemento::getNome() == "granola")
-            soma = soma + preco_Granola;
-        else if(it->Complemento::getNome() == "morango")
-            soma = soma + preco_Morango;
-        else if(it->Complemento::getNome() == "leite ninho")
-            soma = soma + preco_LeiteNinho;
-        else if(it->Complemento::getNome() == "leite condensado")
-            soma = soma + preco_LeiteCondensado;
-    }
-    return (soma + (_tamanho*0,025)) * _quantidade;
-}
-
-
-std::string Acai::descricao() 
-{
-    std::string descricao;
-    descricao = descricao + std::to_string(_quantidade);
-    descricao = descricao + "\n";
-    descricao = descricao + std::to_string(_tamanho);
-    descricao = descricao + "\n";
-
-    std::vector<Complemento>::iterator it;
-    for(it = _acrescimos.begin(); it != _acrescimos.end(); it++)
-    {
-        descricao = descricao + it->Complemento::getNome();
-        descricao = descricao + "\n";
-    }
-    return descricao;
-}
