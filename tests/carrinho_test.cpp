@@ -14,16 +14,52 @@
 
 TEST_CASE("Testando adicionaProduto"){
 
+    SUBCASE("Caso geral: produto adicionado corretamente"){
+
+    }
+
+    SUBCASE("Usuario desistiu de adicionar produto"){
+
+    }
+
+    SUBCASE("Usuario entra com uma escolha invalida"){
+
+    }
+
 }
 
 TEST_CASE("Testando removeProduto"){
+
+    SUBCASE("Caso geral: produto removido corretamente"){
+
+    }
+
+    SUBCASE("Usuario desistiu de adicionar produto"){
+
+    }
+
+    SUBCASE("Usuario entra com uma escolha invalida"){
+
+    }
 
 }
 
 TEST_CASE("Testando calculaTotal"){
 
+    SUBCASE("Caso geral: Retorna a soma dos produtos pedidos sem desconto"){
+
+    }
+
+    SUBCASE("Retorna a soma dos produtos pedidos com desconto"){
+
+    }
+
 }
 
 TEST_CASE("Testando descricaoFinal"){
-    
+
+    SUBCASE("Caso geral: imprime corretamente as descrições"){
+        
+    }
+
 }
