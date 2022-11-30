@@ -90,7 +90,7 @@ class Carrinho {
     * @brief texto do pedido
     * @details imprime descricao de todos os pedidos juntos
     */
-    std::string descricaoFinal();
+    void descricaoFinal();
 
    
 

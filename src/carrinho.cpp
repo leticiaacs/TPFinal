@@ -97,7 +97,7 @@
 
     }
 
-    std::string Carrinho::descricaoFinal(){
+    void Carrinho::descricaoFinal(){
 
         for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
