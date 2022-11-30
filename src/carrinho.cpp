@@ -9,11 +9,11 @@
  * @copyright GNU General Public License v2.0
 */
 
-#define DESCONTO 0,9
+#define DESCONTO 0,5
 #include <iostream>
-#include <list>
+#include <vector>
 #include <string>
-#include <map>
+
 
 #include "carrinho.hpp"
 #include "usuario.hpp"
@@ -48,26 +48,35 @@
         std::cout<<"Você tem certeza que deseja remover este produto ao carrinho? Digite 1 para sim e 2 para nao."<<std::endl;
         std::cin>>c;
 
-        if(c==1){
+        if(c==1)
+        {
+            for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
-        _pedidosProduto.remove(a);//Remove o produto a
-        std::cout<<"Produto removido da lista com sucesso!"<<std::endl;
-             }else if(c==2){
+            if((*it)->descricao()==a.descricao()){
+                _pedidosProduto.erase(it);//Remove se o produto bater com a descricao de algum produto da lista
+            }
+             break;
+
+            }
+
+            std::cout<<"Produto removido da lista com sucesso!"<<std::endl;
+
+        }else if(c==2){
 
             std::cout<<"Produto nao removido da lista."<<std::endl;
 
-                }else{
+        }else{
 
-                throw Incorreto();
+            throw Incorreto();
 
-                }
+            }
         
 
     }
 
     float Carrinho::calculaTotal(Usuario u){
 
-        for(std::list<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
+        for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
             this->_valorFinal= this->_valorFinal+(*it)->getPreco();//Soma o valor de cada produto da lista
 
@@ -84,9 +93,9 @@
 
     std::string Carrinho::descricaoFinal(){
 
-        for(std::list<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
+        for(std::vector<Produto>::iterator it = _pedidosProduto.begin(); it!= _pedidosProduto.end(); it++){
 
-           std::cout<< (*it)->descricao()<<std::endl;;//Exibe a descrição de cada produto da lista
+           std::cout<< (*it)->descricao()<<std::endl;//Exibe a descrição de cada produto da lista
 
         }
 
