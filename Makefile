@@ -28,5 +28,10 @@ acai: produto complemento
 carrinho: usuario produto
 	$(CC) $(FLAGS) -c src/carrinho.cpp -o build/carrinho.o
 
-main: sistema usuario carrinho produto acai vitamina complemento produto
-	$(CC) $(FLAGS) build/sistema.o build/usuario.o build/carrinho.o build/produto.o build/acai.o build/vitamina.o build/complemento.o build/produto.o src/main.cpp -o $(TARGET)
+main: sistema usuario carrinho produto acai vitamina complemento
+	$(CC) $(FLAGS) build/sistema.o build/usuario.o build/carrinho.o build/produto.o build/acai.o build/vitamina.o build/complemento.o src/main.cpp -o $(TARGET)
+
+test: sistema usuario carrinho acai vitamina
+	$(CC) $(FLAGS) test/*cpp
+	build/sistema.o build/usuario.o build/carrinho.o build/acai.o build/vitamina.o -o build/test.out
+
