@@ -11,13 +11,13 @@
 
 int main(){
 	char prog = '1';
+	
+	Sistema sistema = Sistema();
+	Carrinho *ca = new Carrinho();
+	Usuario *u = new Usuario();
+	Produto *p;
+	
 	do {
-
-		Sistema sistema = Sistema();
-		Carrinho *ca = new Carrinho();
-		Usuario *u = new Usuario();
-		Produto *p;
-
 		std::cout << "Seja bem vindx a nossa loja de acai e vitaminas! Na nossa loja, depois que voce chega no decimo pedido, o decimo primeiro vem com um desconto de 50%!!!!"<<std::endl;
 		std::cout << std::endl;
 		std::cout<< "Voce ja possui cadastro? Digite 1 para nao ou qualquer outra tecla para sim"<<std::endl;
