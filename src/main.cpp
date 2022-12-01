@@ -11,13 +11,13 @@
 
 int main(){
 	char prog = '1';
+
+	Sistema sistema = Sistema();
+	Carrinho *ca = new Carrinho();
+	Usuario *u = new Usuario();
+	Produto *p;
+
 	do {
-
-		Sistema sistema = Sistema();
-		Carrinho *ca = new Carrinho();
-		Usuario *u = new Usuario();
-		Produto *p;
-
 		std::cout << "Seja bem vindx a nossa loja de acai e vitaminas! Na nossa loja, depois que voce chega no decimo pedido, o decimo primeiro vem com um desconto de 50%!!!!"<<std::endl;
 		std::cout << std::endl;
 		std::cout<< "Voce ja possui cadastro? Digite 1 para nao ou qualquer outra tecla para sim"<<std::endl;
@@ -81,10 +81,10 @@ int main(){
 		std::cout<<"Para saber quais sao nossas opcoes de produtos, digite 1" << std::endl;
 		std::cout<<"Para fazer o pedido, digite qualquer outra tecla" << std::endl;
 
-		int b;
+		std::string b;
 		std::cin>>b;
 
-		if(b == 1) {
+		if(b == "1") {
 			sistema.informacoes_produtos();
 			std::cout<<"Pronto! Agora que voce ja sabe quais os nossos produtos, pode fazer seu pedido." << std::endl;
 		}
@@ -137,12 +137,13 @@ int main(){
 			std::cout<< "Para remover algum produto, digite 1." <<std::endl;
 			std::cout<< "Para finalizar o pedido, digite qualquer outra tecla." <<std::endl;
 		
-			int e;
+			std::string e;
 			std::cin>>e;
 		
-			if(e == 1)
+			if(e == "1")
 				ca->removeProduto();
 			else {
+				std::cout << "Nova compra computada no seu usuario!" << std::endl;
 				u->aumentaQtdCompras();
 				novo_aux = 1;
 			}

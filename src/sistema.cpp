@@ -41,6 +41,7 @@ int Sistema::cria_cadastro(std::string cpf_novo, std::string senha_nova){
 Usuario* Sistema::verifica_login(std::string c, std::string s){
 
     int aux = 0;
+    int qtd = 0;
     std::string cpf;
     std::string senha;
 	Usuario *u;
@@ -48,11 +49,11 @@ Usuario* Sistema::verifica_login(std::string c, std::string s){
 
         cpf =(*it)->getCPF();
         senha = (*it)->getSenha();
-	
+	    qtd = (*it)->getQtdCompras();
 		
         if((c == cpf) && (s == senha)){
             aux++;
-            u = new Usuario(c, s, 0);
+            u = new Usuario(c, s, qtd);
 			break;
         }
     }
