@@ -11,7 +11,7 @@
 
 int main(){
 	char prog = '1';
-	while(prog == '1'){
+	do {
 
 		Sistema sistema = Sistema();
 		Carrinho *ca = new Carrinho();
@@ -75,6 +75,7 @@ int main(){
 
 		std::cout << std::endl;
 		std::cout<<"Obaaaa, conseguimos acessar sua conta :) " << std::endl;
+		std::cout << "Voce jah realizou " << u->getQtdCompras() << " compras!" << std::endl;
 		std::cout<<"Para saber quais sao nossas opcoes de produtos, digite 1" << std::endl;
 		std::cout<<"Para fazer o pedido, digite qualquer outra tecla" << std::endl;
 
@@ -136,7 +137,7 @@ int main(){
 			int e;
 			std::cin>>e;
 		
-			if(e ==1)
+			if(e == 1)
 				ca->removeProduto();
 			else {
 				u->aumentaQtdCompras();
@@ -150,5 +151,5 @@ int main(){
 		std::cout << std::endl;
 		std::cout << "Deseja continuar o programa? Tecle 1 pra continuar e qualquer outra tecla para sair." << std::endl;
 		std::cin >> prog;
-	}
+	}while(prog == '1');
 }

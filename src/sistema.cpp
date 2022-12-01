@@ -69,10 +69,13 @@ Usuario* Sistema::verifica_login(std::string c, std::string s){
 
 void Sistema::informacoes_produtos() {
 
+    std::cout << std::endl;
     std::cout << "Produtos disponiveis na loja:" << std::endl;
-    std::cout << "Acai 300, 500 e 700 ml" << std::endl << "Complementos do acai:" << std::endl;
-    std::cout << "Banana  -  Granola  -  Morango  -  Leite ninho  -  Leite condensado" << std::endl;
-    std::cout << std::endl << "Vitamina 300, 500 e 700 ml" << "\nSabores da vitamina:" << std::endl;
-	std::cout << std::endl << "Acai, Banana, Morango e Abacaxi" << std::endl;
+    std::cout << "Acai 300 (7.50 reais), 500 (12.50 reais) e 700 ml (17.50 reais)" << std::endl << "Complementos do acai:" << std::endl;
+    std::cout << "Banana (1.50 reais) - Granola (1.50 reais) - Morango (2 reais) - Leite ninho (2.50 reais) - Leite condensado (2.50 reais)" << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl << "Vitamina 300 (4.50 reais), 500 (7.50 reais) e 700 ml (10.50 reais)" << "\nSabores da vitamina:" << std::endl;
+	std::cout << std::endl << "Acai (1.50 reais), Banana (50 centavos), Morango (1 real) e Abacaxi (50 centavos)" << std::endl;
+    std::cout << std::endl;
 }
 
