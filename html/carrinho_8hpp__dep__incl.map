@@ -1,0 +1,9 @@
+<map id="include/carrinho.hpp" name="include/carrinho.hpp">
+<area shape="rect" id="node1" title="Classe principal com a lógica do carrinho, classe para tratamento de excessoes." alt="" coords="206,6,361,33"/>
+<area shape="rect" id="node2" href="$sistema_8hpp.html" title="Classe central do programa, chamada de Sistema e Classe na qual está o tratamento de exceção,..." alt="" coords="113,81,267,108"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="5,156,111,182"/>
+<area shape="rect" id="node6" href="$carrinho_8cpp.html" title="Classe principal com a lógica do carrinho." alt="" coords="315,81,441,108"/>
+<area shape="rect" id="node7" href="$carrinho__test_8cpp.html" title="Classe principal com os testes da classe carrinho." alt="" coords="465,81,635,108"/>
+<area shape="rect" id="node4" href="$sistema_8cpp.html" title=" " alt="" coords="135,156,259,182"/>
+<area shape="rect" id="node5" href="$sistema__test_8cpp.html" title=" " alt="" coords="283,156,452,182"/>
+</map>
