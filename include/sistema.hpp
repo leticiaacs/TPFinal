@@ -97,7 +97,16 @@ class Sistema {
 	 * @brief Função que exibe informações dos produtos
 	 * @details Função que mostra ao usuário todos os produtos disponíveis na loja
 	 */
+
+
 	void informacoes_produtos();
+	
+	/**
+	 * @brief Função que modifica o parametro quantidade de pedidos do usuario
+	 * @details Função que verifica qual usuario acabou de fazer o pedido e chama a função da classe usuário que aumenta 1 pedido
+	 */
+	
+	void modifica_usuario(Usuario *u);
 };
 
 
