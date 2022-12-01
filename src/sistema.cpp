@@ -8,20 +8,22 @@
 
 
 int Sistema::cria_cadastro(std::string cpf_novo, std::string senha_nova){
-    
+
     std::string c;
+	
+	if(cpf_novo == "00000000000" || cpf_novo.size() != 11)
+		return 1;
+	
     for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
-
-        (*it)->getCPF() = c;
-
-        if(c == cpf_novo|| cpf_novo == "00000000000"|| cpf_novo.size() < 11){
+        c = (*it)->getCPF();
+        if(c == cpf_novo){
             return 1;
         }
     }
 
     Usuario *u = new Usuario(cpf_novo, senha_nova, 0);
     banco_de_usuarios.push_back(u);
-
+	
     return 0;
 }
 
@@ -34,19 +36,20 @@ Usuario* Sistema::verifica_login(std::string c, std::string s){
 	Usuario *u;
     for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
 
-        (*it)->getCPF() = cpf;
-        (*it)->getSenha() = senha;
-
-        if(c == cpf && s == senha){
+        cpf =(*it)->getCPF();
+        senha = (*it)->getSenha();
+	
+		
+        if((c == cpf) && (s == senha)){
             aux++;
             u = new Usuario(c, s, 0);
+			break;
         }
     }
 
     if(aux == 0){
 
         throw DadosInvalidos();
-        exit(1);
     }
 	
 	else 
@@ -56,10 +59,10 @@ Usuario* Sistema::verifica_login(std::string c, std::string s){
 
 void Sistema::informacoes_produtos() {
 
-    std::cout << "Produtos disponíveis na loja:" << std::endl;
+    std::cout << "Produtos disponiveis na loja:" << std::endl;
     std::cout << "Acai 300, 500 e 700 ml" << std::endl << "Complementos do acai:" << std::endl;
     std::cout << "Banana  -  Granola  -  Morango  -  Leite ninho  -  Leite condensado" << std::endl;
-    std::cout << std::endl << "Vitamina 300, 500 e 700 ml" << "Sabores da vitamina:" << std::endl;
+    std::cout << std::endl << "Vitamina 300, 500 e 700 ml" << "\nSabores da vitamina:" << std::endl;
 	std::cout << std::endl << "Acai, Banana, Morango e Abacaxi" << std::endl;
 }
 

@@ -19,29 +19,35 @@ int main(){
 	std::cout << "Seja bem vindx a nossa loja de acai e vitaminas! Na nossa loja, depois que voce chega no decimo pedido, o decimo primeiro vem com um desconto de 50%!!!!"<<std::endl;
 	std::cout<< "Voce ja possui cadastro? Digite 1 para nao ou qualquer outra tecla para sim"<<std::endl;
 
-	int a;
-	std::cin>>a;
-
-	if(a == 1) {
-		std::cout<<"Para criar o seu cadastro, precisamos que voce digite o seu cpf e, em seguida, crie e digite uma senha, nessa ordem." <<std::endl;
+	std::string ajuda;
+	std::cin>>ajuda;
+	
+	if(ajuda == std::to_string(1)) {
 		
-		std::string cpf;
-		std::string senha;
-		int a = 0;
+		do{	
+			std::cout<<"Para criar o seu cadastro, precisamos que voce digite o seu cpf e, em seguida, crie e digite uma senha, nessa ordem." <<std::endl;
+			
+			std::string cpf;
+			std::string senha;
+			int a = 0;
 
-		do{
+		
 			std::cin>>cpf>>senha;
 			a = sistema.cria_cadastro(cpf, senha);
-
 			if(a==1){
 				std::cout<<"Esse cpf ja esta cadastrado ou e um numero invalido. Digite 1 para voltar para a pagina de cadastros"<<std::endl;
+				ajuda = std::to_string(1);
 			}
-		}while(a == 1);
+			else 
+				ajuda = std::to_string(2);
+		}while(ajuda == std::to_string(1));
+		
 		std::cout<<"Prontinho! Cadastro efetuado com sucesso"<<std::endl;
 	} 
 
 	int auxiliar = 0;
-
+	
+	
 	do{
 		std::cout<<"Para entrar em sua conta, digite o seu CPF e a sua senha. "<<std::endl;
 		std::string cpf_digitado;
@@ -67,9 +73,9 @@ int main(){
 	int b;
 	std::cin>>b;
 
-	if(b =='1') {
+	if(b == 1) {
 		sistema.informacoes_produtos();
-		std::cout<<"Pronto! Agora que você já sabe quais os nossos produtos, pode fazer seu pedido." << std::endl;
+		std::cout<<"Pronto! Agora que voce ja sabe quais os nossos produtos, pode fazer seu pedido." << std::endl;
 	}
 
 	int aux;
@@ -91,26 +97,24 @@ int main(){
 			std::cout<< "Prontinho! Seu pedido escolhido foi: " << p->descricao()<<std::endl;
 			std::cout<< "Ja adicionamos o produto no carrinho! Deseja pedir mais alguma coisa? Digite 1 para nao ou qualquer outra tecla para sim"<<std::endl;
 			
-			int d;
+			std::string d;
 			std::cin>>d;
-			if (d == 1)
+			if (d == std::to_string(1))
 				aux = 1;
 			else
 				aux = 0;
-		
 		}
 
         catch(Incorreto &e) {
             std::cout<<e.what()<<std::endl;
-            aux = 1;
+            aux = 0;
         }
 		catch (tamanhoInvalido &e) {
 			std::cout<<e.what()<<std::endl;
-            aux = 1;
+            aux = 0;
 			
 		}
-    } while (aux == 1);
-
+    } while (aux == 0);
 
 
 	do{

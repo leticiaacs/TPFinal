@@ -94,6 +94,6 @@ class Produto {
          * 
          */
         virtual void montar() = 0;
-
+};
 
 #endif

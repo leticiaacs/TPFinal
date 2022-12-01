@@ -23,7 +23,7 @@ float Vitamina::calculaPreco()
     std::vector<std::string>::iterator it;
     for(it = _saboresVitamina.begin(); it != _saboresVitamina.end(); it++)
     {
-        if(*it == "açaí")
+        if(*it == "acai")
             soma = soma + sabor_Acai;
         else if(*it == "banana")
             soma = soma + sabor_Banana;
@@ -38,14 +38,19 @@ float Vitamina::calculaPreco()
 std::string Vitamina::descricao() 
 {
     std::string descricao;
-    descricao ="Vitamina de " + std::to_string(_tamanho) + " de sabor ";
-
-    std::vector<std::string>::iterator it;
+    descricao ="Vitamina de " + std::to_string(_tamanho) + " de sabor " ;
+	
+   /* std::vector<std::string>::iterator it;
     for(it = _saboresVitamina.begin(); it != _saboresVitamina.end(); it++)
     {
-        descricao = descricao + *it + " ";
-    }
+        descricao = descricao + getSabor() + " ";
+    }*/
+	
+	for (int i = 0; i<2;i++){
+		descricao = descricao + _saboresVitamina[i] + " ";	
+	}
 		descricao = descricao + '\n';
+
     return descricao;
 }
 
@@ -53,38 +58,39 @@ void Vitamina::montar()
 {
     std::string str; 
     char c;
-    int n, m = 0;
+    std::string n;
+	int m = 0;
 
-    std::cout << "Digite o número de acordo tamanho que você deseja:" << std::endl << "1. 300 ml" << std::endl << "2. 500 ml" << std::endl << "3. 700 ml" << std::endl;
+    std::cout << "Digite o numero de acordo tamanho que voce deseja:" << std::endl << "1. 300 ml" << std::endl << "2. 500 ml" << std::endl << "3. 700 ml" << std::endl;
     std::cin >> n;
-    if(n == 1){
+    if(n == std::to_string(1)){
         _tamanho = 300;
-    } else if(n == 2){
+    } else if(n == std::to_string(2)){
         _tamanho = 500;
-    } else if(n == 3){
+    } else if(n == std::to_string(3)){
         _tamanho = 700;
     } else {
 		throw tamanhoInvalido();
 	}
 
-    std::cout << "Você tem direito até escolher 2 sabores" << std::endl;
+    std::cout << "Voce tem direito de escolher ate 2 sabores" << std::endl;
     do
     {
-        std::cout << "Digite o número de acordo com o sabor que você deseja:" << std::endl;
-        std::cout << "1. Açaí" << std::endl << "2. Banana" << std::endl << "3. Morango" << std::endl << "4. Abacaxi" << std::endl;
+        std::cout << "Digite o numero de acordo com o sabor que voce deseja:" << std::endl;
+        std::cout << "1. Acai" << std::endl << "2. Banana" << std::endl << "3. Morango" << std::endl << "4. Abacaxi" << std::endl;
         std::cin >> n;
 
-        if(n == 1){
-            _saboresVitamina.push_back("Açaí");
-        } else if(n == 2){
+        if(n == std::to_string(1)){
+            _saboresVitamina.push_back("Acai");
+        } else if(n == std::to_string(2)){
             _saboresVitamina.push_back("Banana");
-        } else if(n == 3){
+        } else if(n == std::to_string(3)){
             _saboresVitamina.push_back("Morango");
-        } else if(n == 4){
+        } else if(n == std::to_string(4)){
             _saboresVitamina.push_back("Abacaxi");
         } 
 
-        std::cout << "Deseja adicionar mais sabores à sua vitamina? (s/n)?" << std::endl;
+        std::cout << "Deseja adicionar mais sabores a sua vitamina? (s/n)?" << std::endl;
         std::cin >> c;
         if(c == 's')
         {
@@ -92,7 +98,7 @@ void Vitamina::montar()
         } 
         if(m > 1)
         {
-            std::cout << "O limite de sabores foi alcançado" << std::endl;
+            std::cout << "O limite de sabores foi alcancado" << std::endl;
             c = 'n';
         }
     }while(c == 's');
