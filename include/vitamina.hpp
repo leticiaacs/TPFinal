@@ -21,7 +21,7 @@
 *@copyright GNU General Public License v2.0
 */
 
-class Produto;
+//class Produto;
 
 class Vitamina : public Produto  {
    /**

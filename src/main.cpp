@@ -56,6 +56,7 @@ int main(){
 	
 	
 		do{
+			auxiliar = 0;
 			std::cout<<"Para entrar em sua conta, digite o seu CPF e a sua senha. "<<std::endl;
 			std::string cpf_digitado;
 			std::string senha_digitada;
@@ -76,6 +77,7 @@ int main(){
 		std::cout << std::endl;
 		std::cout<<"Obaaaa, conseguimos acessar sua conta :) " << std::endl;
 		std::cout << "Voce jah realizou " << u->getQtdCompras() << " compras!" << std::endl;
+		std::cout << std::endl;
 		std::cout<<"Para saber quais sao nossas opcoes de produtos, digite 1" << std::endl;
 		std::cout<<"Para fazer o pedido, digite qualquer outra tecla" << std::endl;
 
@@ -87,7 +89,7 @@ int main(){
 			std::cout<<"Pronto! Agora que voce ja sabe quais os nossos produtos, pode fazer seu pedido." << std::endl;
 		}
 
-		int aux;
+		int aux = 0;
 
 		do {
 			std::cout<<"Digite A para pedir um acai e V para pedir uma vitamina" << std::endl;
@@ -125,6 +127,7 @@ int main(){
 			}
     	} while (aux == 0);
 
+		int novo_aux = 0;
 
 		do{
 		
@@ -141,9 +144,9 @@ int main(){
 				ca->removeProduto();
 			else {
 				u->aumentaQtdCompras();
-				aux = 1;
+				novo_aux = 1;
 			}
-		} while(aux == 0);
+		} while(novo_aux == 0);
 
 		std::cout << std::endl;
 		std::cout<<"Seu pedido foi computado! Agradecemos pela compra e volte sempre :)"<<std::endl;

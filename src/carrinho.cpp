@@ -25,12 +25,12 @@ void Carrinho::adicionaProduto(Produto* a){
     std::cout<<"Voce tem certeza que deseja adicionar este produto ao carrinho? Digite 1 para sim e 2 para nao."<<std::endl;
     std::cin>>c;
 
-    if(c==std::to_string(1)){
+    if(c == "1"){
 
         _pedidosProduto.push_back(a);//Adiciona produtos ao final da lista
         std::cout<<"Produto adicionado a lista com sucesso!"<<std::endl;
             
-    }else if(c==std::to_string(2)){
+    }else if(c == "2"){
 
         std::cout<<"Produto nao adicionado a lista."<<std::endl;
 
