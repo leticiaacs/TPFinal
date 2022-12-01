@@ -1,6 +1,13 @@
 # TPFinal
 :books: Trabalho final da disciplina PDS II - turma TF. Tema escolhido: Sistema de Gerência e-commerce. 
 
+  Criamos um sistema de gerenciamento para uma loja fictícia de açaí e vitaminas, onde contamos com algumas classes, todas com seus 
+  respectivos parâmetros e métodos, a fim de permitir que os usuários possam se cadastrar e os cadastrados possam realizar novas compras dentre
+  os produtos possíveis ao colocá-los no carrinho. Exibimos opções de complementos e seus diferentes preços e permitimos que os clientes possam
+  montar seu pedido, combinando os produtos e complementos disponíveis.
+
+
+
 :busts_in_silhouette: Alunos:
   - Leon
   - Letícia
@@ -8,14 +15,14 @@
   - Naiara
   - Yaggo
 
+
+
 :memo: Diagrama de classes:
 
-![DiagramaDeClasses](https://user-images.githubusercontent.com/112037731/204921639-b06c66e2-fbc6-4b88-aaa9-b7dda0604f11.jpg)
+![DiagramaDeClasses (1)](https://user-images.githubusercontent.com/112037731/205135243-05e79bb6-97f2-4790-b0b9-e74f44afb5c6.jpg)
 
 
-  Criamos um sistema de gerenciamento para uma loja fictícia de açaí, onde contamos com algumas classes, todas com seus 
-  respectivos parâmetros e métodos, a fim de permitir que os usuários cadastrados possam realizar novas compras dentre
-  os produtos possíveis ao colocá-los no carrinho.
+
 
 :speech_balloon: User Stories:
 
