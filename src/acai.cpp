@@ -72,7 +72,7 @@ void Acai::montar()
     std::cout << "Voce tem direito a escolher 5 complementos" << std::endl;
     do
     {
-        std::cout << "Digite o número de acordo com o complemento que você deseja:" << std::endl;
+        std::cout << "Digite o numero de acordo com o complemento que voce deseja:" << std::endl;
         std::cout << "1. Banana" << std::endl << "2. Granola" << std::endl << "3. Morango" << std::endl << "4. Leite ninho" << std::endl << "5. Leite condensado" << std::endl;
         std::cin >> n;
 
@@ -95,7 +95,7 @@ void Acai::montar()
 
         std::cout << "Deseja adicionar mais complementos ao seu acai? (s/n)?" << std::endl;
         std::cin >> c;
-        if(c == 's')
+        if(c == 's' || c == 'S')
         {
             m++;
         } 
@@ -104,7 +104,7 @@ void Acai::montar()
             std:: cout << "Voce chegou ao limite de complementos."<<std::endl;
             c = 'n';
         }
-    }while(c == 's');
+    }while(c == 's' || c == 'S');
 
     std::cout << "Deseja remover algum complemento? (s/n)?" << std::endl;
     std::cin >> c;
