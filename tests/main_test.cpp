@@ -2,3 +2,5 @@
 #include "usuario_test.hpp"
 #include "carrinho_test.hpp"
 #include "sistema_test.hpp"
+#include "acai_test.hpp"
+#include "vitamina_test.hpp"

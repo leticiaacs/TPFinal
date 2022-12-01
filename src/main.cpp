@@ -11,12 +11,20 @@
 
 int main(){
 	char prog = '1';
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 71422d7196ef951ae372aa8f1691c85b035d731e
 	Sistema sistema = Sistema();
 	Carrinho *ca = new Carrinho();
 	Usuario *u = new Usuario();
 	Produto *p;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 71422d7196ef951ae372aa8f1691c85b035d731e
 	do {
 		std::cout << "Seja bem vindx a nossa loja de acai e vitaminas! Na nossa loja, depois que voce chega no decimo pedido, o decimo primeiro vem com um desconto de 50%!!!!"<<std::endl;
 		std::cout << std::endl;
