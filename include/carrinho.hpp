@@ -91,7 +91,11 @@ class Carrinho {
     */
     void descricaoFinal();
 
-   
+    /**
+    * @brief get vetor de produtos para teste
+    * @details retorna o vetor de produtos do objeto carrinho
+    */
+    std::vector<Produto*> getPedidosProduto();    
 
 };
 
