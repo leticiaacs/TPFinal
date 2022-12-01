@@ -80,3 +80,23 @@ void Sistema::informacoes_produtos() {
     std::cout << std::endl;
 }
 
+void Sistema::modifica_usuario(Usuario *u) {
+	std::string senha;
+	std::string cpf;
+	std::string s;
+	std::string c;
+	
+	s = u->getSenha();
+	c = u->getCPF();
+	
+	for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
+        
+		cpf = (*it)->getCPF();
+		senha = (*it)->getSenha();
+        
+		if((c == cpf) && (s == senha)){
+            (*it)->aumentaQtdCompras();
+        }
+    }
+
+}
