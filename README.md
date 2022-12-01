@@ -23,25 +23,27 @@
 :white_check_mark: Mostrar as diferenças opções de tamanho;  
 :white_check_mark: Mostrar o preço de cada tamanho;  
 :white_check_mark: Deixar o cliente escolher qual comprar;  
+
 - Como vendedor de açaí, gostaria de oferecer aos meus clientes diferentes opções de acréscimo  para complementar o açaí.  
 :white_check_mark: Mostrar as diferenças opções de acréscimo;  
 :white_check_mark: Mostrar o preço de cada acréscimo;  
 :white_check_mark: Deixar o cliente escolher qual comprar;  
-- Como vendedor de açaí, gostaria que meus clientes possam fazer cadastro para pedir seus  açaís.  
+
+- Como vendedor de açaí, gostaria que meus clientes possam fazer cadastro para pedir seus produtos.  
 :white_check_mark: Criar login e senha para os clientes;  
-:white_check_mark: Sistema de contagem para contabilizar quantos açaís cada cliente comprou;   
+:white_check_mark: Sistema de contagem para contabilizar quantos produtos cada cliente comprou;   
 :white_check_mark: Verificar quando a quantidade comprada for múltipla de 10 e oferecer  vantagens por fidelidade;  
+
 - Como cliente, gostaria de poder entrar na minha conta.  
 :white_check_mark: Permitir entrada de login e senha;  
 :white_check_mark: Verificar se os dados para acesso batem com os cadastrados;  
-:white_check_mark: Ver quantos açaís já comprei.  
-- Como vendedor de açaí, gostaria de oferecer um sistema de fidelidade para beneficiar meus  clientes mais fiéis.  
-:white_check_mark: Possibilidade de escolher entre dois tipos de cadastro (premium e normal);  
-:white_check_mark: Implementar vantagens conforme o tipo de cadastro;  
-:white_check_mark: Definir diferenças de cobrança entre os cadastros;  
-:white_check_mark: Identificar quando o cliente é premium ou normal;  
+:white_check_mark: Ver quantos produtos já comprei.  
+
+- Como vendedor de açaí, gostaria de oferecer um sistema de fidelidade para beneficiar meus  clientes mais fiéis.   
+:white_check_mark: Implementar vantagens conforme o quantidade de compras;  
+
 - Como cliente eu quero saber o valor final da minha compra.  
 :white_check_mark: Conhecer o preço de cada item;  
 :white_check_mark: Somar os preços dos itens no meu carrinho;  
-:white_check_mark: Exibis o preço final;  
+:white_check_mark: Exibir o preço final;  
 :white_check_mark: Finalizar a compra. 
