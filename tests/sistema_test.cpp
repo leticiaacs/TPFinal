@@ -47,13 +47,3 @@ TEST_CASE("Testando verifica_login"){
     }
 
 }
-
-TEST_CASE("Testando informacoes_produtos"){
-   
-    SUBCASE("Caso geral: mensagem exibida corretamente"){
-        Sistema s = Sistema();
-        //FALTA INSERIR A INFORMACAO FINAL QUE VAI SER EXIBIDA
-        CHECK_EQ(s.informacoes_produtos(),"INSERIR AQUI DESCRICAO FINAL" );
-    }
-
-}
