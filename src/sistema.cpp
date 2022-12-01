@@ -10,10 +10,20 @@
 int Sistema::cria_cadastro(std::string cpf_novo, std::string senha_nova){
 
     std::string c;
+
+    //testa se tem letra
+    for(int i=0; i<11; i++){
+
+            if(cpf_novo[i] != '1' && cpf_novo[i] != '2' && cpf_novo[i] != '3' && cpf_novo[i] != '4' && cpf_novo[i] != '5' && cpf_novo[i] != '6' && cpf_novo[i] != '7' && cpf_novo[i] != '8' && cpf_novo[i] != '9' && cpf_novo[i] != '0'){
+                return 1;
+
+        }
+    }
 	
-	if(cpf_novo == "00000000000" || cpf_novo.size() != 11)
-		return 1;
-	
+	if(cpf_novo == "00000000000" || cpf_novo.size() != 11){
+        return 1;
+    }
+
     for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++){
         c = (*it)->getCPF();
         if(c == cpf_novo){

@@ -35,7 +35,7 @@ int main(){
 			std::cin>>cpf>>senha;
 			a = sistema.cria_cadastro(cpf, senha);
 			if(a==1){
-				std::cout<<"Esse cpf ja esta cadastrado ou e um numero invalido. Digite 1 para voltar para a pagina de cadastros"<<std::endl;
+				std::cout<<"Esse cpf ja esta cadastrado ou eh um numero invalido. Digite 1 para voltar para a pagina de cadastros"<<std::endl;
 				ajuda = std::to_string(1);
 			}
 			else 
