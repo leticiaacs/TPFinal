@@ -19,8 +19,8 @@
 
 :memo: Diagrama de classes:
 
-![DiagramaDeClasses (1)](https://user-images.githubusercontent.com/112037731/205135243-05e79bb6-97f2-4790-b0b9-e74f44afb5c6.jpg)
 
+![DiagramaDeClasses (2)](https://user-images.githubusercontent.com/112037731/205167774-d3cfe902-9db1-459f-9936-696875de5ada.jpg)
 
 
 
