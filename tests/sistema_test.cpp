@@ -47,3 +47,13 @@ TEST_CASE("Testando verifica_login"){
     }
 
 }
+
+TEST_CASE("Testando modifica_usuario"){
+   Sistema s = Sistema();
+   Usuario u = Usuario("12345678911","senha",0);
+   REQUIRE(s.cria_cadastro("12345678911","senha"));
+   REQUIRE(modifica_usuario(u));
+   
+   for(std::list<Usuario*>::iterator it = banco_de_usuarios.begin(); it!= banco_de_usuarios.end(); it++)
+      CHECK_EQ((*it)->getQtdCompras(),1);
+}
