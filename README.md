@@ -19,7 +19,7 @@
 
 :memo: Diagrama de classes:
 
-![DiagramaDeClasses (3)](https://user-images.githubusercontent.com/112037731/205170054-3ba89057-4a64-4968-99c5-e2448e6dfd3e.jpg)
+![DiagramaDeClasses drawio](https://user-images.githubusercontent.com/108194166/205774424-8a66a001-3929-4356-a015-6012eac7e6cc.png)
 
 
 
