@@ -92,7 +92,7 @@ void Vitamina::montar()
 
         std::cout << "Deseja adicionar mais sabores a sua vitamina? (s/n)?" << std::endl;
         std::cin >> c;
-        if(c == 's')
+        if(c == 's' || c == 'S')
         {
             m++;
         } 
@@ -101,11 +101,11 @@ void Vitamina::montar()
             std::cout << "O limite de sabores foi alcancado" << std::endl;
             c = 'n';
         }
-    }while(c == 's');
+    }while(c == 's' || c == 'S');
 
     std::cout << "Deseja remover algum Sabor? (s/n)?" << std::endl;
     std::cin >> c;
-    if(c == 's')
+    if((c == 's') || (c == 'S'))
     {
         std::cout << "Digite o nome do sabor que deseja remover." << std::endl;
         std::cin >> str;

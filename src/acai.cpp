@@ -108,11 +108,12 @@ void Acai::montar()
 
     std::cout << "Deseja remover algum complemento? (s/n)?" << std::endl;
     std::cin >> c;
-    if(c == 's')
+    if(c == 's' || c == 'S')
     {
         do{
             std::cout << "Digite o nome do complemento que deseja remover." << std::endl;
-            std::cin >> str;
+            std::cin.ignore();
+            std::getline(std::cin, str);
 
             for(std::vector<Complemento*>::iterator it = _acrescimos.begin(); it != _acrescimos.end(); it++)
             {
@@ -128,7 +129,7 @@ void Acai::montar()
             {
                 c = 'n';
             }
-        }while(c == 's');
+        }while(c == 's' || c == 'S');
     } 
 
 }

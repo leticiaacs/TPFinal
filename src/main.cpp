@@ -153,7 +153,7 @@ int main(){
 		std::cout<<"Seu pedido foi computado! Agradecemos pela compra e volte sempre :)"<<std::endl;
 		std::cout << std::endl;
 		std::cout << std::endl;
-		std::cout << "Deseja continuar o programa? Tecle 1 pra continuar e qualquer outra tecla para sair." << std::endl;
+		std::cout << "Deseja continuar na loja? Tecle 1 pra continuar e qualquer outra tecla para sair." << std::endl;
 		std::cin >> prog;
 	}while(prog == '1');
 }
