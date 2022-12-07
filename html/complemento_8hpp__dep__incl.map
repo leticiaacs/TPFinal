@@ -1,7 +1,8 @@
 <map id="include/complemento.hpp" name="include/complemento.hpp">
-<area shape="rect" id="node1" title="Classe utilizada para adicionar complementos ao açaí" alt="" coords="74,6,265,33"/>
-<area shape="rect" id="node2" href="$acai_8hpp.html" title="Classe Açaí e Classe do tratamento de exceções." alt="" coords="43,81,171,108"/>
+<area shape="rect" id="node1" title="Classe utilizada para adicionar complementos ao açaí" alt="" coords="167,6,358,33"/>
+<area shape="rect" id="node2" href="$acai_8hpp.html" title="Classe Açaí e Classe do tratamento de exceções." alt="" coords="136,81,264,108"/>
 <area shape="rect" id="node3" href="$acai_8cpp.html" title=" " alt="" coords="5,156,104,182"/>
-<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="154,156,259,182"/>
-<area shape="rect" id="node5" href="$complemento_8cpp.html" title=" " alt="" coords="269,81,432,108"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title=" " alt="" coords="297,156,402,182"/>
+<area shape="rect" id="node6" href="$complemento_8cpp.html" title=" " alt="" coords="363,81,525,108"/>
+<area shape="rect" id="node5" href="$acai__test_8cpp.html" title=" " alt="" coords="128,156,272,182"/>
 </map>
